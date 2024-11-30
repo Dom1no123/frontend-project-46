@@ -1,5 +1,8 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Dom1no123/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Dom1no123/frontend-project-46/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d550a962a10f6f9c453c/maintainability)](https://codeclimate.com/github/Dom1no123/frontend-project-46/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d550a962a10f6f9c453c/test_coverage)](https://codeclimate.com/github/Dom1no123/frontend-project-46/test_coverage)
+[![Node.js CI](https://github.com/<username>/<repository>/actions/workflows/node.js.yml/badge.svg)](https://github.com/Dom1no123/frontend-project-46/.github/workflows/node.js.yml)
 ## Вычислитель отличий (`gendiff`)
 
 ### Описание
