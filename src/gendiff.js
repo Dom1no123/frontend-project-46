@@ -7,12 +7,8 @@ import _ from 'lodash';
 
 const parseFile = (filepath) => {
   const absolutePath = path.resolve(filepath);
-  try {
-    const content = fs.readFileSync(absolutePath, 'utf-8');
-    return JSON.parse(content);
-  } catch (error) {
-    throw new Error(`Failed to read or parse file: ${filepath}. ${error.message}`);
-  }
+  const content = fs.readFileSync(absolutePath, 'utf-8');
+  return JSON.parse(content);
 };
 
 const genDiff = (data1, data2) => {
@@ -34,7 +30,7 @@ const genDiff = (data1, data2) => {
     return `    ${key}: ${data1[key]}`;
   });
 
-  return `{\n${lines.join('\n')}\n}`.trim();
+  return `{\n${lines.join('\n')}\n}`;
 };
 
 const program = new Command();
@@ -55,6 +51,7 @@ program
     }
   });
 
+// Условное выполнение CLI
 if (import.meta.url === `file://${process.argv[1]}`) {
   program.parse();
 }
