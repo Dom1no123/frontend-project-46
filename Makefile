@@ -1,8 +1,8 @@
 gendiff:
-	node gendiff.js -h
+	node bin/CLI.js -h
 	
 test: 
 	node --experimental-vm-modules ./node_modules/jest/bin/jest.js
 	 
 run:
-	node genDiff.js __fixtures__/file1.json __fixtures__/file2.json
+	node genDiff.js src/__fixtures__/file1.json src/__fixtures__/file2.json

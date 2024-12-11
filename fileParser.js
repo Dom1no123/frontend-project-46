@@ -1,11 +1,10 @@
-#!/usr/bin/env node
-
-import fs from 'fs';
-import path from 'path';
-
-
 export const parseFile = (filepath) => {
   const absolutePath = path.resolve(filepath);
+
+  if (!fs.existsSync(absolutePath)) {
+    throw new Error(`File not found: ${absolutePath}`);
+  }
+
   const content = fs.readFileSync(absolutePath, 'utf8');
   const ext = path.extname(filepath);
 
@@ -14,4 +13,4 @@ export const parseFile = (filepath) => {
   }
 
   throw new Error(`Unsupported file format: ${ext}`);
-};
+}

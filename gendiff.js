@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 
+
 const parseFile = (filepath) => {
   const absolutePath = path.resolve(filepath);
   try {
@@ -14,6 +15,7 @@ const parseFile = (filepath) => {
     throw new Error(`Failed to read or parse file: ${filepath}. ${error.message}`);
   }
 };
+
 
 const genDiff = (data1, data2) => {
   const keys = _.sortBy(_.union(Object.keys(data1), Object.keys(data2)));
@@ -34,8 +36,9 @@ const genDiff = (data1, data2) => {
     return `    ${key}: ${data1[key]}`;
   });
 
-  return `{\n${lines.join('\n')}\n}`.trim();
+  return `{\n${lines.join('\n')}\n}`.trim().replace(/\r\n/g, '\n');
 };
+
 
 const program = new Command();
 
@@ -55,8 +58,4 @@ program
     }
   });
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  program.parse();
-}
-
-export default genDiff;
+program.parse();
