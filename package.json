@@ -11,7 +11,7 @@
   "test": "jest --coverage"
 },
   "bin": {
-    "gendiff": "./bin/CLI.js"
+    "gendiff": "./bin/gendiff.js"
   },
   "keywords": [],
   "author": "",

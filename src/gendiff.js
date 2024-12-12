@@ -51,7 +51,7 @@ program
     }
   });
 
-// Условное выполнение CLI
+
 if (import.meta.url === `file://${process.argv[1]}`) {
   program.parse();
 }

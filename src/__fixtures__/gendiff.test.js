@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'url';
 import path from 'path';
 import { readFileSync } from 'fs';
-import genDiff from '../genDiff.js';
+import genDiff from '../genDiff';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,14 +15,14 @@ const readFile = (filename) => {
 };
 
 test('gendiff', () => {
-  const file1Content = readFile('file1.json');
-  const file2Content = readFile('file2.json');
+  const file1Content = JSON.parse(readFile('file1.json'));
+  const file2Content = JSON.parse(readFile('file2.json'));
   const expected = readFile('expected_output.txt').trim();
 
-  const diff = genDiff(file1Content, file2Content);
+  const diff = genDiff(file1Content, file2Content).trim();
 
   console.log('Expected Output:', expected);
   console.log('Received Output:', diff);
 
-  expect(diff.trim()).toBe(expected);
+  expect(diff).toBe(expected); 
 });
